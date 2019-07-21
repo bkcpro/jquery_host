@@ -1,0 +1,45 @@
+html
+{
+   background-image: url("../misc/images/background.jpg");
+}
+
+body
+{
+   padding: 1em;
+   background-color: #FFFFFF;
+}
+
+.templates
+{
+   display: none;
+}
+
+.filter
+{
+   margin-bottom: 0.5em;
+}
+
+.template.qualifier
+{
+   display: inline-block;
+   /* IE 6-7 Hack */
+   *display: inline;
+   zoom: 1;
+}
+
+#results
+{
+   margin: 1em auto;
+   border-collapse: collapse;
+}
+
+#results th,
+#results td
+{
+   padding: 0.2em 0.5em;
+}
+
+#results tr:nth-child(odd)
+{
+   background-color: #71A9D6;
+}
