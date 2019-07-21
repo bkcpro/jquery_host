@@ -137,6 +137,9 @@
             $(document).trigger('moviesLoaded');
          });
 
+         var selectedOptions = $('.filter .filter-type').find(':selected');
+
+
          $(document).on('moviesLoaded', function() {
             $('#filters')
                     .on('change', '.filter-type', function() {
