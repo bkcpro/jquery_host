@@ -31,15 +31,12 @@ function reAssignOptions(){
 
    var selectedOptions = $('.filter .filter-type').find(':selected');
 
-   $options = $('.templates .filter-type').first().children().not(':first').clone();
+   $options = $('.templates .filter-type').first().children().clone();
    // console.log($options);
 
    let filterInUse = $filters
-             .children()
-             .map(function() {
-
-              if($(this).children('.filter-type').find(':selected').val() === '') return;
-
+           .children()
+           .map(function() {
               return $(this)
                       .children('.template')
                       .attr('class')
@@ -49,56 +46,30 @@ function reAssignOptions(){
 
    // console.log(filterInUse);
 
-   // console.log($('.filter')
-   //      .children('.filter-type'));
+   console.log($('.filter')
+        .children('.filter-type'));
 
    $('.filter')
         .children('.filter-type')
         .children().remove();
 
-   // console.log(selectedOptions);
+   // console.log($options);
 
    $('.filter .filter-type')
-          .append($options)
-          .find('option[data-template-type]')
-          .filter(function(){
+          .append($options);
+          // .find('option[data-template-type]')
+          // .filter(function(){
+          //   selectedIndex = $('.filter').index($(this).closest('.filter'));
+          //   // console.log('this... ', $(this), 'selectedoptions...', selectedOptions[selectedIndex]);
+          //   if($(this).val() === selectedOptions[selectedIndex].value) {
+          //     $(this).attr('selected', 'selected');
+          //     return;
+          //   }
+          //   // console.log($(this).data('template-type'), filterInUse.indexOf($(this).data('template-type')));
+          //   return filterInUse.indexOf($(this).data('template-type')) >= 0;
+          // })
+          // .remove();
 
-            selectedIndex = $('.filter').index($(this).closest('.filter'));
-
-            // console.log(selectedOptions[selectedIndex]);
-            // console.log('this... ', $(this), 'selectedoptions...', selectedOptions[selectedIndex]);
-
-            // console.log(selectedOptions[selectedIndex].value === '');
-
-            if(selectedOptions[selectedIndex].value !== '') {
-
-              if($(this).val() === selectedOptions[selectedIndex].value){
-                $(this).attr('selected', 'selected');
-                return;
-              }
-
-              return filterInUse.indexOf($(this).data('template-type')) >= 0;
-            }
-            // console.log($(this).data('template-type'), filterInUse.indexOf($(this).data('template-type')));
-
-            else{
-
-              $(this).closest('.filter-type').prepend($('.templates .filter-type').children().first().clone());
-              selectedOptions[selectedIndex].value = 'dummyText';
-              return filterInUse.indexOf($(this).data('template-type')) >= 0;
-            }
-          })
-          .remove();
-
-    // $('.filter .filter-type').each(function(index){
-    //   // console.log(selectedOptions[index]);
-    //   // console.log(selectedOptions);
-    //   // console.log($(this).children()[1]);
-    //   $(this).children().filter(function(){
-    //       return $(this).val() === selectedOptions[index].value;
-    //   }).attr('selected', 'selected');
-    //
-    // });
 
 }
 
